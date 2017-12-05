@@ -83,18 +83,18 @@ class NodeRendererDefault extends Component {
     return (
       <div style={{ height: '100%' }} {...otherProps}>
         {toggleChildrenVisibility &&
-          node.children &&
-          (node.children.length > 0 || typeof node.children === 'function') && (
+           (
             <div>
               <button
                 type="button"
                 aria-label={node.expanded ? 'Collapse' : 'Expand'}
                 className={
-                  node.expanded ? styles.collapseButton : styles.expandButton
+                  styles.iconFlag
                 }
                 style={{ left: -0.5 * scaffoldBlockPxWidth }}
                 onClick={() =>
-                  toggleChildrenVisibility({
+                  node.children &&
+                  (node.children.length > 0 || typeof node.children === 'function') && toggleChildrenVisibility({
                     node,
                     path,
                     treeIndex,
